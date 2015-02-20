@@ -3,7 +3,7 @@
     <http>
         <server-port>8182</server-port>
         <server-host>0.0.0.0</server-host>
-        <base-uri>http://localhost</base-uri>
+        <base-uri>http://192.168.0.99</base-uri>
         <web-root>public</web-root>
         <character-set>UTF-8</character-set>
         <enable-jmx>false</enable-jmx>
@@ -52,7 +52,7 @@
             <name>gremlin-groovy</name>
             <reset-threshold>-1</reset-threshold>
             <init-scripts>config/init.groovy</init-scripts>
-            <imports>com.tinkerpop.rexster.client.*</imports>
+            <imports>com.tinkerpop.rexster.client.*,com.thinkaurelius.titan.core.*</imports>
             <static-imports>java.lang.Math.PI</static-imports>
         </script-engine>
     </script-engines>
@@ -99,11 +99,11 @@
                 <storage.port>_CASSANDRA_TCP_PORT_</storage.port> <!-- Cassandra Thrift Port -->
                 <cache.db-cache>true</cache.db-cache>
                 <cache.db-cache-clean-wait>20</cache.db-cache-clean-wait>
-                <storage.index.search.backend>elasticsearch</storage.index.search.backend>
-                <storage.index.search.hostname>_ELASTICSEARCH_HOSTNAME_</storage.index.search.hostname>
-                <storage.index.search.port>_ELASTICSEARCH_TCP_PORT_</storage.index.search.port> <!-- ES REST Port -->
-                <storage.index.search.client-only>true</storage.index.search.client-only>
-            </properties>
+                <index.search.backend>elasticsearch</index.search.backend>
+                <index.search.hostname>_ELASTICSEARCH_HOSTNAME_</index.search.hostname>
+                <index.search.port>_ELASTICSEARCH_TCP_PORT_</index.search.port> <!-- ES REST Port -->
+        	<index.search.elasticsearch.client-only>true</index.search.elasticsearch.client-only>    
+	</properties>
             <extensions>
                 <allows>
                     <allow>tp:gremlin</allow>
